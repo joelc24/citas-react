@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 
 const Formulario = () => {
+    const [nombre, setNombre] = useState('')
+    
     return (
         <div className="md:w-1/2 lg:w-2/5">
             <h4 className="font-black text-3xl text-center">Seguimientos Pacientes</h4>
