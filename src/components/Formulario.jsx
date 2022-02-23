@@ -17,7 +17,7 @@ const Formulario = () => {
                 <div className="mb-5">
                     <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre Mascota
                     </label>
-                    <input id="mascota" type="text" placeholder="Nombre de la Mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+                    <input id="mascota" type="text" placeholder="Nombre de la Mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
                 </div>
                 <div className="mb-5">
                     <label htmlFor="propietario" className="block text-gray-700 uppercase font-bold">Nombre Propietario
