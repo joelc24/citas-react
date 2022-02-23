@@ -3,10 +3,14 @@ import { useState, useEffect } from 'react';
 
 const Formulario = () => {
     const [nombre, setNombre] = useState('')
+    const [propietario, setPropietario] = useState('')
+    const [email, setEmail] = useState('')
+    const [fecha, setFecha] = useState('')
+    const [sintomas, setSintomas] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Enviando formulacion")
+        console.log("Enviando formulario")
     }
     
     return (
