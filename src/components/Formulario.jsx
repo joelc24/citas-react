@@ -11,10 +11,15 @@ const Formulario = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log("Enviando formulario")
+        if([nombre, propietario, email, fecha, sintomas].includes('')){
+            console.log('hay al menos un campo vacio')
+        }else{
+            console.log('todos los campos llenos')
+        }
     }
     
     return (
-        <div className="md:w-1/2 lg:w-2/5">
+        <div className="md:w-1/2 lg:w-2/5 mx-5">
             <h4 className="font-black text-3xl text-center">Seguimientos Pacientes</h4>
 
             <p className="text-lg mt-5 text-center mb-10">
@@ -27,7 +32,7 @@ const Formulario = () => {
                 onSubmit={handleSubmit}
             >
                 <div className="mb-5">
-                    <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre Mascota {nombre}
+                    <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre Mascota 
                     </label>
                     <input 
                         id="mascota" 
@@ -38,39 +43,47 @@ const Formulario = () => {
                         />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="propietario" className="block text-gray-700 uppercase font-bold">Nombre Propietario
+                    <label htmlFor="propietario" className="block text-gray-700 uppercase font-bold">Nombre Propietario 
                     </label>
                     <input 
                         id="propietario" 
                         type="text" 
                         placeholder="Nombre del Propietario" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                        value={propietario} 
+                        onChange={(e) => setPropietario(e.target.value)}
                         />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="email" className="block text-gray-700 uppercase font-bold">Email
+                    <label htmlFor="email" className="block text-gray-700 uppercase font-bold">Email 
                     </label>
                     <input 
                         id="email" 
                         type="email" 
                         placeholder="Email Contacto Propietario" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
                         />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="alta" className="block text-gray-700 uppercase font-bold">alta
+                    <label htmlFor="alta" className="block text-gray-700 uppercase font-bold">alta 
                     </label>
                     <input 
                         id="alta" 
                         type="date" 
                         className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                        value={fecha}
+                        onChange={(e) => setFecha(e.target.value)}
                         />
                 </div>
                 <div className="mb-5">
-                    <label htmlFor="sintomas" className="block text-gray-700 uppercase font-bold">sintomas
+                    <label htmlFor="sintomas" className="block text-gray-700 uppercase font-bold">sintomas 
                     </label>
                     <textarea 
                         id="sintomas" 
                         className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" 
                         placeholder="Escribe los Sintomas"
+                        value={sintomas}
+                        onChange={(e) => setSintomas(e.target.value)}
                         />
                 </div>
                 <input 
