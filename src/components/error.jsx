@@ -1,7 +1,7 @@
-const Error = ({mensaje}) => {
+const Error = ({children}) => {
     return ( 
-        <div>
-            <p className="bg-red-700 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">{mensaje}</p>
+        <div className="bg-red-700 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">
+            {children}
         </div>
      );
 }

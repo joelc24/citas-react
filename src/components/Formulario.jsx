@@ -53,7 +53,7 @@ const Formulario = ({pacientes,setPacientes}) => {
                 className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
                 onSubmit={handleSubmit}
             >
-                {error && <Error mensaje='Todos los Capmos son Obligatorios'/>}
+                {error && <Error><p>Todos los Capmos son Obligatorios</p></Error>}
                 <div className="mb-5">
                     <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre Mascota 
                     </label>
