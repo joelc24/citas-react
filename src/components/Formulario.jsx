@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-const Formulario = () => {
+const Formulario = ({pacientes,setPacientes}) => {
     const [nombre, setNombre] = useState('')
     const [propietario, setPropietario] = useState('')
     const [email, setEmail] = useState('')
@@ -17,9 +17,26 @@ const Formulario = () => {
             console.log('hay al menos un campo vacio')
 
             setError(true)
-        }else{
-            console.log('todos los campos llenos')
+            return;
         }
+
+        setError(false)
+        //Objeto de paciente
+        const objetoPaciente = {
+            nombre,
+            propietario,
+            email,
+            fecha,
+            sintomas
+        }
+
+        setPacientes([...pacientes, objetoPaciente])
+        //reiniciar form
+        setNombre('')
+        setPropietario('')
+        setEmail('')
+        setFecha('')
+        setSintomas('')
     }
     
     return (
@@ -35,10 +52,11 @@ const Formulario = () => {
                 className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
                 onSubmit={handleSubmit}
             >
-                {error && (<div>
-                    <p>Si hay un error</p>
-                </div>)
-                }
+                {error && (
+                <div>
+                    <p className="bg-red-700 text-white text-center p-3 uppercase font-bold mb-3 rounded-md">Todos los Capmos son Obligatorios</p>
+                </div>
+                )}
                 <div className="mb-5">
                     <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre Mascota 
                     </label>
