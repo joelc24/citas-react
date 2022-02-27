@@ -1,14 +1,27 @@
+import swal from '@sweetalert/with-react'
 const Pacientes = ({paciente, setPaciente, eliminarPaciente}) => {
     
     
 const {nombre, propietario, email, fecha, sintomas, id} = paciente
 
 const handleEliminar = () =>{
-    const respuesta = confirm('Eliminar ?')
-
-    if(respuesta){
-        eliminarPaciente(id)
-    }
+    swal({
+        title: "Esta seguro?",
+        text: "Al Presionar Ok se Eliminara Permanentemente el Paciente!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            eliminarPaciente(id)
+          swal("Paciente ELiminado Satisfactoriamente!", {
+            icon: "success",
+          });
+        } else {
+          swal("La Eliminacion Ha Sido Cancelada!");
+        }
+      });
 }
 
 return ( 
